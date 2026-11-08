@@ -1,0 +1,27 @@
+# Node dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+dist-ssr/
+*.local
+
+# Temporary / testing screenshots in root
+*-preview*.png
+*-team.png
+*-cover.png
+goal-slide.png
+objectives-slide.png
+team-slide.png
+cover-browser.png
+header-with-dept-text.png
+
+# Editor & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
