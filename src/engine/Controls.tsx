@@ -1,6 +1,7 @@
-import { ChevronLeft, ChevronRight, Flag, LayoutGrid, Maximize2, Minimize2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, FileDown, Flag, LayoutGrid, Maximize2, Minimize2 } from 'lucide-react';
 import { slides, SECTIONS } from '../content/slides';
 import type { Presentation } from './usePresentation';
+import { downloadPptxPresentation } from '../export/downloadPptx';
 
 export default function Controls({ p, idle }: { p: Presentation; idle: boolean }) {
   const slide = slides[p.index];
@@ -18,6 +19,14 @@ export default function Controls({ p, idle }: { p: Presentation; idle: boolean }
       </div>
       <div className="ctl-btns">
         <span className="counter">{p.index + 1} / {p.total}</span>
+        <button
+          onClick={downloadPptxPresentation}
+          title="Download PowerPoint Presentation (.pptx)"
+          aria-label="Download PowerPoint presentation"
+          className="btn-pptx"
+        >
+          <FileDown size={18} />
+        </button>
         <button onClick={() => p.setFlags((f) => !f)} aria-pressed={p.flags} title="Show review flags (R)" className={p.flags ? 'on' : ''}><Flag size={18} /></button>
         <button onClick={() => p.setOverview(true)} title="Slide overview (O)" aria-label="Slide overview"><LayoutGrid size={18} /></button>
         <button onClick={p.toggleFs} title="Full screen (F)" aria-label="Toggle full screen">{p.fs ? <Minimize2 size={18} /> : <Maximize2 size={18} />}</button>
