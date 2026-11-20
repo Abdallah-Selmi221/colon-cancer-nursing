@@ -45,14 +45,14 @@ try {
   const slideFiles = fs.readdirSync(slidesDir).filter(f => f.match(/^slide\d+\.xml$/));
   console.log('Total Slides Found:', slideFiles.length);
 
-  if (slideFiles.length !== 46) {
-    throw new Error(`Expected exactly 46 slides, but found ${slideFiles.length}`);
+  if (slideFiles.length !== 35) {
+    throw new Error(`Expected exactly 35 slides, but found ${slideFiles.length}`);
   }
-  console.log('Slide Count Verification: PASSED (Exactly 46 slides)');
+  console.log(`Slide Count Verification: PASSED (Exactly ${slideFiles.length} slides)`);
 
   // Verify slide order & sample titles from slide XMLs
   console.log('\n--- Sampling Key Slides ---');
-  const samples = [1, 2, 3, 4, 5, 10, 20, 30, 40, 46];
+  const samples = [1, 2, 5, 8, 10, 15, 20, 25, 26, 28, 30, 32, 34, 35];
   for (const sNum of samples) {
     const sPath = path.join(slidesDir, `slide${sNum}.xml`);
     if (!fs.existsSync(sPath)) {
